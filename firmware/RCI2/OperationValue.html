@@ -1,0 +1,289 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SiDiMaT19xA auto measurement Report operation value </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="SiDiMaT19xA auto measurement Report operation value ">
+    <meta name="generator" content="docfx 2.40.10.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="sidimat19xa-auto-measurement-report-operation-value">SiDiMaT19xA auto measurement <em>Report</em> operation value</h1>
+
+<p>The <em>Report</em> operation basically services to generate a report containing SiDiMaT19xA measurement or a logging measurement graphs and result table of the auto specification conditions. The value of this operation is a collection of the values in the following table (values have to be used without brackets).  The value first word &quot;<em>italic</em>&quot; is a keyword and has to be written correct.</p>
+<table>
+<thead>
+<tr>
+<th><em>Value</em></th>
+<th><em>Description</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{ <em>measure</em>}</td>
+<td>start sidimat measurement.</td>
+</tr>
+<tr>
+<td>{ <em>rci-command</em>; command:text }</td>
+<td>send text to controller as rci-command, text has to be a valid rci-command.</td>
+</tr>
+<tr>
+<td>{ <em>pneum-system</em>}</td>
+<td>excute a pneumatic system action.</td>
+</tr>
+<tr>
+<td>{ <em>trace-setting</em>; samples:x; undersample:x; average:x; anti-aliasing:(on/off) }</td>
+<td>start sidimat measurement.</td>
+</tr>
+<tr>
+<td>{ <em>trace-sig</em>; signum:x; type:x; mainindex:x; subindex:x }</td>
+<td>config a trace signal.</td>
+</tr>
+<tr>
+<td>{ <em>excit-sig</em>; type:x; mainindex:x; subindex:x }</td>
+<td>config injection point signal.</td>
+</tr>
+<tr>
+<td>{ <em>excit-filter</em>; filnum:x; type:x; par1:x; par2:x; par3:x; par4:x; par5:x }</td>
+<td>config an excitation filter.</td>
+</tr>
+<tr>
+<td>{ <em>excit-setting</em>; type:x; par1:x; par2:x; par3:x; par4:x; filterusage:(on/off) }</td>
+<td>config the excitation signal setting.</td>
+</tr>
+<tr>
+<td>{ <em>system-loopstatus</em>; status: <em>S1</em> <em>S2</em> ... <em>Sn</em>}</td>
+<td>toggles a control loop on/off. the status parameters should be one or many of:(READ, CACHE, RESTORE, OVERALLON, OVFFON, PFFON, PNEUMON, OVERALLOFF, OVFFOFF, PFFOFF, PNEUMOFF, TEMPSENSORON, TEMPSENSOROFF, ETHERCATSFFON, ETHERCATSFFOFF, ETHERCATMOTON, ETHERCATMOTOFF)</td>
+</tr>
+<tr>
+<td>{ <em>individual-loopstatus</em>; velocity:x; position:x; pneumatic:x }</td>
+<td>set the individual loop status of a control loop.</td>
+</tr>
+<tr>
+<td>{ <em>clear-cached-measurements</em>; measurement1; measurement2, ... }</td>
+<td>add the text to the markdown string as paragraph2.</td>
+</tr>
+<tr>
+<td>{ <em>waitms</em>; ms}</td>
+<td>wait the time period ms.</td>
+</tr>
+<tr>
+<td>{ <em>cache-measurement</em>;}</td>
+<td>cache the actual sidimat measurement.</td>
+</tr>
+<tr>
+<td>{ __;path}</td>
+<td>add a picture to the markdown string. when Path is not absolute then it is relative to the first evaluated auto measurement file path (original-path).</td>
+</tr>
+<tr>
+<td>{ <em>tabelheader</em>;colh1;colh2; ...}</td>
+<td>add a table header with the headers {colh1, colh2, ...}.</td>
+</tr>
+<tr>
+<td>{ <em>tabelrow</em>;result1;result2; ...}</td>
+<td>add a new row to the table with the cells content {result1, result2, ....}. Cells content is a text or a <strong>specification result</strong> (see description below). The table rows have to directly follow the table header.</td>
+</tr>
+<tr>
+<td>{ <em>save</em>;path}</td>
+<td>save the mardown string to .md file (filename) and convert the markdown string to a html. furthermore it convert the html file to a pdf file.</td>
+</tr>
+<tr>
+<td>{ <em>doc-prop</em>; <em>property1</em>: value; <em>property1</em>: value; ...}</td>
+<td>sets document properties like author, serial number ... etc. each property consist of two by a double point seperated terms. the first one is the property name {<em>serialnr</em>, <em>author</em>, <em>tester</em>, <em>title</em>, <em>systemname</em> } and the second term is the property value.</td>
+</tr>
+<tr>
+<td>{ <em>excute</em>;cmd}</td>
+<td>excutes the command line cmd. The excuting path is the original-path. If cmd is a .bat file then the file will be executed.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="specification-results">Specification results</h2>
+<p>Here is a list with possible specification result could be used as table cell content.  Specification result starts with a specification opeartion name (spec-op-name) followed by dot (.) followed by specicfication operation value keyword (spec-op-key) followed by dot (.) followed by specification parameter (spec-par) which will be the cell content.</p>
+<blockquote>
+<p>Syntax: {spec-op-name.spec-op-key.spec-par}</p>
+</blockquote>
+<ul>
+<li><strong>spec_name</strong>: the name of the SpeckCheck operation example (CheckSpec_#VelXtrasOl).</li>
+<li><strong>spec-op-key</strong>: one of the following specification check operations:
+<ol>
+<li><strong>max</strong>: the maximum y-value.</li>
+<li><strong>max-pos</strong>: the x-position of the maximum y-value.</li>
+<li><strong>ocl-lbw</strong>: the isolation lower active band width value.</li>
+<li><strong>ocl-hbw</strong>: the isolation lower active band width value.</li>
+<li><strong>ocl-damp</strong>: the isolation active damping.</li>
+<li><strong>check-point</strong>: the y-value at a specific point at the x-axis.</li>
+<li><strong>min</strong>: the minimum y-value.</li>
+<li><strong>pk-pk</strong>: the peak to peak y-value.</li>
+<li><strong>check-upper-spec-curve</strong>: check if a curve &quot;signal&quot; lies under a spec-curve.</li>
+</ol>
+</li>
+<li><strong>spec-par</strong>: one of the following parameter:
+<ol>
+<li><strong>minmax</strong>: the specification range [min max].</li>
+<li><strong>measured</strong>: measured value.</li>
+<li><strong>result</strong>: specification check status of the spec-op-key the result is one from {Passed, Failed}.</li>
+</ol>
+</li>
+</ul>
+<h2 id="example">Example</h2>
+<h3 id="1-example">1 Example</h3>
+<p>The following operation actions listed below measures the open/closed force mobilty transfer function of the Yrot axis.</p>
+<pre><code class="lang-&lt;xml&gt;">  &lt;Operation Name=&quot;Operation&quot;&gt;
+        &lt;Value&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;individual-loopstatus; velocity:011111&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;clear-cached-measurements;&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;trace-sig;signum:2; type:2; mainindex:5; subindex:-1&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;excit-sig;type:4; mainindex:5; &lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;waitms; time:2000;&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;measure;&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;cache-measurement;&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;individual-loopstatus; velocity:111111&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;waitms; time:2000;&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;measure;&lt;/anyType&gt;
+        &lt;/Value&gt;
+  &lt;/Operation&gt;
+</code></pre>
+<h3 id="2-example">2 Example</h3>
+<pre><code class="lang-&lt;xml&gt;">&lt;!-- Yrot Axis--&gt;
+   &lt;AutoMeasurent Name=&quot;FMYrotRawOCL&quot; IsEnabled=&quot;true&quot;&gt;
+    &lt;OperationList&gt;
+      &lt;Operation Name=&quot;Operation&quot;&gt;
+        &lt;Value&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;individual-loopstatus; velocity:101111&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;clear-cached-measurements;&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;trace-sig;signum:2; type:2; mainindex:4; subindex:-1&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;excit-sig;type:4; mainindex:4; &lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;waitms; time:2000;&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;measure;&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;cache-measurement;&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;individual-loopstatus; velocity:111111&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;waitms; time:2000;&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;measure;&lt;/anyType&gt;
+        &lt;/Value&gt;
+      &lt;/Operation&gt;
+    
+      &lt;Operation Name=&quot;Save&quot;&gt;
+        &lt;Value&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;frf2fig;file:Yrot_Raw_OCL_AW_FRF.idefigure&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;time2fig;file:Yrot_Raw_OCL_AW_TimeSpec.idefigure&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;frf2pic;file:Yrot_Raw_OCL_AW_FRF.png&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;time2pic;file:Yrot_Raw_OCL_AW_TimeSpec.png&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;raw;file:Yrot_Raw_OCL_AW.sidimat19x&lt;/anyType&gt;
+        &lt;/Value&gt;
+      &lt;/Operation&gt;
+      &lt;Operation Name=&quot;CheckSpec_#FMYr0OCLAW&quot;&gt;
+        &lt;Value&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;cache;file:Yrot_Raw_OCL_AW_FRF.idefigure&lt;/anyType&gt;
+         &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;max; sig:F1P1S2; specmin:18.5; specmax:23.7;rmin:1;rmax:15&lt;/anyType&gt;
+        &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;max-pos; sig:F1P1S2; specmin:2.0; specmax:3.0; rmin:1; rmax:15&lt;/anyType&gt;
+        &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;ocl-lbw; olsig:F1P1S2; clsig:F1P1S1; rmin:1; rmax:14; specmax:1.5&lt;/anyType&gt;
+        &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;ocl-hbw;olsig:F1P1S2; clsig:F1P1S1; specmin:11; rmin:1; rmax:14;&lt;/anyType&gt;
+        &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;ocl-damp;olsig:F1P1S2; clsig:F1P1S1; specmin:17; rmin:1; rmax:14;&lt;/anyType&gt;
+        &lt;/Value&gt;
+      &lt;/Operation&gt;
+      &lt;Operation Name=&quot;Report&quot;&gt;
+        &lt;Value&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;para3;Yrot Force Mobility at raw input Open/Close Loop&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;text;Here are the force mobility measurements. Measured at the velocity axes raw input&lt;/anyType&gt;
+          &lt;anyType xsi:type=&quot;xsd:string&quot;&gt;pic;Measurements\ForceMobility\Raw_OCL_AW\Yrot_Raw_OCL_AW_FRF.png&lt;/anyType&gt;
+        &lt;/Value&gt;
+      &lt;/Operation&gt;
+    &lt;/OperationList&gt;
+    &lt;/AutoMeasurent&gt;
+</code></pre>
+<h3 id="3-example">3 Example</h3>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

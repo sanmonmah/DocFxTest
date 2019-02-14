@@ -1,0 +1,257 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MEASUREMENT MAT FILES STRUCTURE </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="MEASUREMENT MAT FILES STRUCTURE ">
+    <meta name="generator" content="docfx 2.40.10.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="measurement-mat-files-structure">MEASUREMENT MAT FILES STRUCTURE</h1>
+
+<p>All sidimat measurement (*.sidimat19x, *.idefigure) are saved in matlab format.</p>
+<h2 id="idefigure-matlab-structure-description">.idefigure matlab structure description</h2>
+<p>IDEFigure consist of MxN Graph-Matrix (Plot-Matrix, Model-Matrix) where M is the RowNumber and N is the ColumnNumber of the iDEFigure.</p>
+<p>Graph-Matrix Structure by 3x3 Graph-Matrix:
+| |  | |
+-|-|-
+Model0 | Model1 | Model2
+Model3 | Model4 | Model5
+Model6 | Model7 | Model8</p>
+<pre><code>&gt;&gt; xx=load(&quot;xrot_raw_frf_ol_m.idefigure&quot;)
+xx =  //IDEFigure structure
+  scalar structure containing the fields:
+
+    MeasurementType = IdeFigure //this is the measurement type
+    Version =  1    // IDEFigure Structure version
+    FigureTitle =    //this is title of the figure
+    FigureTitleFontSize =  14  //font size of the figure title
+    RowNumber = 3  //Row numbers in figure
+    ColumnNumber = 1  //column number in figure, the graph number  
+    Model0 =  // Graph-Structure, first graph in the 3x1 Graph-Matrix
+
+      scalar structure containing the fields:
+
+        Version =  1 // Graph structure Version
+        Title =     //Title of the Graph
+        LogX = 1  //Logarithmic x-axis (1: logarithmic, 0:linear)
+        LogY = 0  //Logarithmic x-axis (1: logarithmic, 0:linear)
+        Grid = on  //Grid status (on,off)
+        Legend = 1  //Legend status (0,1)
+        Xaxis = //x-axis structure
+
+          scalar structure containing the fields:
+
+            Version: 1x1 scalar //Version of the axis structure
+            Title: 0x0 sq_string //Label of the x-axis
+            TitleFontSize: 1x1 scalar //title font size
+            Prop: 1x4 matrix //Axis Scale Properties containing Scale {min max minorstep majorstep} 
+
+        Yaxis = //Y-axis structure (see x-axis)
+
+          scalar structure containing the fields:
+
+            Version: 1x1 scalar
+            Title: 1x14 sq_string
+            TitleFontSize: 1x1 scalar
+            Prop: 1x4 matrix
+
+       Annotations = //Annotation structure
+
+          scalar structure containing the fields:
+
+            Version: 1x1 scalar // Annotations structure Version
+            Annotation0: 1x1 scalar struct //Annotation structure
+            Annotation1: 1x1 scalar struct //Annotation structure
+            Annotation2: 1x1 scalar struct //Annotation structure
+
+        Series = //Series “Curves” structure 
+
+          scalar structure containing the fields:
+
+            Serie1: 1x1 scalar struct //Serie “Curve” structure
+
+
+    Model1 =
+</code></pre>
+<p><em>Table 5.1.1: IDEFigure matlab structure.</em></p>
+<pre><code>&gt;&gt; xx.Model0.Series.Serie1
+ans =
+
+  scalar structure containing the fields:
+
+    Title = Vel Xrot Raw/Excitation //Serie Title
+    Serie =  //2 dimensional array containing the (x,y) pairs.
+
+     Columns 1 through 9:
+
+         0.00000     0.24000     0.48000     0.72000     0.96000     1.20000     1.44000     1.68000     1.92000
+       -47.01777   -19.74275   -27.61559   -13.96998    -4.44243    -1.02031    -1.81286    -3.54399     4.22259
+
+     Columns 10 through 18:
+
+         2.16000     2.40000     2.64000     2.88000     3.12000     3.36000     3.60000     3.84000     4.08000
+         8.07258    16.54702    19.15587    19.87028    20.90579    21.40222    22.44204    20.61854    17.68427
+
+     Columns 19 through 27:
+
+         4.32000     4.56000     4.80000     5.04000     5.28000     5.52000     5.76000     6.00000     6.24000
+        15.69454    14.56121    13.44503    12.86091    12.07755    11.50960    10.28915     9.97069     9.78908
+
+     Columns 28 through 36:
+
+         6.48000     6.72000     6.96000     7.20000     7.44000     7.68000     7.92000     8.16000     8.40000
+         8.78665     8.44608     8.06616     7.70098     7.56921     7.34422     6.54481     6.27385     5.96678
+</code></pre>
+<p><em>Table 5.1.2: Serie matlab structure.</em></p>
+<pre><code>&gt;&gt; xx.Model0.Annotations
+ans =
+
+  scalar structure containing the fields:
+
+    Version =  1 //Structure Version
+    Annotation0 =
+
+      scalar structure containing the fields:
+
+        Type = Point //Annotation type
+        Position = //Annotation Position in graph
+
+            3.6000   22.4420
+        //Annotation Text to display
+        Text = X:3.6
+Y:22.442
+</code></pre>
+<p><em>Table 5.1.3: Annotation matlab Structure.</em></p>
+<h1 id="sidimat19x-matlab-structure-description">.sidimat19x matlab structure Description</h1>
+<p>IDEFigure consists of one or more of opticon trace data “RawDatx”.</p>
+<pre><code>&gt;&gt; xx=load(&quot;xrot_stage7_ocl.sidimat19x&quot;)
+xx =
+
+  scalar structure containing the fields:
+
+    MeasurementType = SiDiMat19x
+    Version =  1
+    RawDat1 =
+
+      scalar structure containing the fields:
+
+        Version =  1 //Structure version
+        SampleRate = 6000 //controller sample rate during tracing 
+        UnderSample = 5 //trace under sample number
+        SampleNumber = 5000 // traced data number
+        AverageNumber = 4 // trace averages
+        SignalName = //Trace signals name
+
+          scalar structure containing the fields:
+
+            Sig0: 1x12 sq_string
+            Sig1: 1x15 sq_string
+
+        DataSet = //Trace data array 2x(sampleNumber*AverageNumber)-array. This array contains the traced data of the two trace signals. 
+
+         Columns 1 through 8:
+          -2.7344e+003  -2.9265e+003  -2.6285e+003  -2.6919e+003  -2.8300e+003  -2.6299e+003  -2.6821e+003  -2.4236e+003
+          -2.7434e+003  -2.7056e+003  -2.6472e+003  -2.6658e+003  -2.6704e+003  -2.6295e+003  -2.6498e+003  -2.6562e+003
+
+         Columns 9 through 16:
+
+          -2.0755e+003  -2.4358e+003  -2.8244e+003  -2.5403e+003  -2.3636e+003  -2.9963e+003  -2.9254e+003  -2.5269e+003
+          -2.6239e+003  -2.6445e+003  -2.6592e+003  -2.6326e+003  -2.5962e+003  -2.6090e+003  -2.5843e+003  -2.5773e+003
+
+         Columns 17 through 24:
+</code></pre>
+<p><em>Table 5.2.1: .sidimat19x matlab structure.</em></p>
+</article>
+          </div>
+          <div class="contribution-panel mobile-hide">
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

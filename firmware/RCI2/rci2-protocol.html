@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>RCI2 Command and response frames </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="RCI2 Command and response frames ">
+    <meta name="generator" content="docfx 2.40.10.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="rci2-command-and-response-frames">RCI2 Command and response frames</h1>
+
+<h2 id="overview">OVERVIEW</h2>
+<p>RCI2 interface protocol consist of two kinds of frames the command and response frames.<br>
+Both frames are similar. The response frames contains additional a status word which gives the status of the corresponding command.</p>
+<h2 id="rci2-command-frame">RCI2 command frame</h2>
+<p>The RCI2 commands is 16bit-word stream that means the basic data unit is 16bit word. Each RCI2 commands consist of determined words number at least 3 words (START, CMD and CKS) and maximum 61 words.</p>
+<table>
+<thead>
+<tr>
+<th>START</th>
+<th>CMD</th>
+<th>DATA0</th>
+<th>…</th>
+<th>DATAn</th>
+<th>CKS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16-bit</td>
+<td>16-bit</td>
+<td>16/32-bit</td>
+<td>16/32-bit</td>
+<td>16/32-bit</td>
+<td>16-bit</td>
+</tr>
+<tr>
+<td>Start word</td>
+<td>Command word</td>
+<td>Data word 0</td>
+<td>…</td>
+<td>Data word 57</td>
+<td>checksum</td>
+</tr>
+</tbody>
+</table>
+<p><strong>START</strong>: Start command word including length and start character</p>
+<table>
+<thead>
+<tr>
+<th>Bit 15 … 8</th>
+<th>Bit 7 … 0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data length code (bytes)</td>
+<td>Command start byte</td>
+</tr>
+</tbody>
+</table>
+<p><em>Data length code</em>: Number of all words including START (length from START to CKS)
+<em>Command start byte</em>: (including command destination: DSP, ARM etc.)
+58 (0x3A): DSP (Opticon Controller).
+35 (0x23): ARM (OCM2 Module) “actually not supported”.</p>
+<p><strong>CMD</strong>: Command word including source identifier</p>
+<table>
+<thead>
+<tr>
+<th>Bit 15 … 12</th>
+<th>Bit 11 … 0</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Command source identifier (4-bit)</td>
+<td>Command identifier (12-bit)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Command source identifier:
+<ul>
+<li>0x0: Reserved</li>
+<li>0x1: DSPC67 RS232A</li>
+<li>0x2: DSPC67 RS232B</li>
+<li>0x3: DSPC67 USB</li>
+<li>0x4: Touch panel/TFT display</li>
+<li>0x5: EtherCAT</li>
+<li>0x6: USB-1</li>
+<li>0x7: USB-2</li>
+<li>0x8: RS232</li>
+<li>0x9: Ethernet</li>
+<li>0xA – 0xF: Reserved (e.g. CAN, Bluetooth, WiFi)</li>
+</ul>
+</li>
+<li>Command identifier: 12-bit wide, defined in RCI2 interface specification</li>
+</ul>
+<p><strong>DATA</strong>: 16-bit integer (signed “Int16”, unsigned “UInt16”), 32-bit-integer (signed “Int32”, unsigned “UInt32” or 32-bit floating point data, max. 58 data words.</p>
+<p><strong>CKS</strong>: Checksum calculation second complement of sum of all words.
+Second complement: to build the second complement “Two’s Complement” of a binary number invert the binary number and add one.</p>
+<h2 id="rci2-response-frame">RCI2 response frame</h2>
+<p>Each sent command will get a response. The RCI2 response bases on the RCI2 command but has an additional status field (STATUS word).
+The RCI2 response basic unit is 16bit word. Each RCI2 response consists of determined words number at least 4 words (<strong>START</strong>, <strong>CMD</strong>, <strong>STATUS</strong> and <strong>CKS</strong>) and maximum 62 words.</p>
+<table>
+<thead>
+<tr>
+<th>START</th>
+<th>CMD</th>
+<th>STATUS</th>
+<th>DATA0</th>
+<th>…</th>
+<th>DATAn</th>
+<th>CKS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16-bit</td>
+<td>16-bit</td>
+<td>16-bit</td>
+<td>16/32-bit</td>
+<td>16/32-bit</td>
+<td>16/32-bit</td>
+<td>16-bit</td>
+</tr>
+<tr>
+<td>Start word</td>
+<td>Command word</td>
+<td>Status word</td>
+<td>Data word 0</td>
+<td>…</td>
+<td>Data word 57</td>
+<td>checksum</td>
+</tr>
+</tbody>
+</table>
+<p><strong>START</strong>: Start command word including length and start character
+Bit 15 … 8 | Bit 7 … 0
+-- | --
+<em>Data length code</em> (bytes) | <em>Command start byte</em>
+<em>Data length code</em>: Number of all words including <strong>START</strong> (from <strong>START</strong> to <strong>CKS</strong>).</p>
+<p><em>Command Start byte</em>: (including command destination: DSP, ARM etc.)</p>
+<ul>
+<li>58 (0x3A): DSP (Opticon Controller).</li>
+<li>35 (0x23): ARM (OCM2 Module) “actually not supported”.</li>
+</ul>
+<p><strong>CMD</strong>: Command word including source identifier
+Bit 15 … 12 | Bit 11 … 0
+-- | --
+<em>Command source identifier</em> (4-bit) | <em>Command identifier</em> (12-bit)
+<em>Command source identifier</em>:</p>
+<ul>
+<li>0x0: Reserved</li>
+<li>0x1: DSPC67 RS232A</li>
+<li>0x2: DSPC67 RS232B</li>
+<li>0x3: DSPC67 USB</li>
+<li>0x4: Touch panel/TFT display</li>
+<li>0x5: EtherCAT</li>
+<li>0x6: USB-1</li>
+<li>0x7: USB-2</li>
+<li>0x8: RS232</li>
+<li>0x9: Ethernet</li>
+<li>0xA – 0xF: Reserved (e.g. CAN, Bluetooth, WiFi)</li>
+</ul>
+<p><em>Command identifier</em>: 12-bit wide, defined in RCI2 interface specification.<br>
+<strong>Status</strong>: The status word informs about the command processing status. See status code in above section.<br>
+<strong>DATA</strong>: 16-bit integer (signed “Int16”, unsigned “UInt16”), 32-bit-integer (signed “Int32”, unsigned “UInt32” or 32-bit floating point data, max. 58 data words.<br>
+<strong>CKS</strong>: Checksum calculation second complement of sum of all words.</p>
+</article>
+          </div>
+          <div class="contribution-panel mobile-hide">
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

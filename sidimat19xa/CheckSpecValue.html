@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>SiDiMaT19xA auto measurement CheckSpec operation value </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="SiDiMaT19xA auto measurement CheckSpec operation value ">
+    <meta name="generator" content="docfx 2.40.10.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="sidimat19xa-auto-measurement-checkspec-operation-value">SiDiMaT19xA auto measurement <em>CheckSpec</em> operation value</h1>
+
+<p>The <em>CheckSpec</em> operation basically services to checks a specification of a SiDiMaT19xA measurement or a logging measurement which is saved in .IDEFigure file. The value of this operation is a collection of the values in the following table (values have to be used without brackets).  The value first word &quot;<em>italic</em>&quot; is keyword and has to be written correct.</p>
+<table>
+<thead>
+<tr>
+<th><em>Value</em></th>
+<th><em>Description</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{<em>cache</em>;path1;path2; ... }</td>
+<td>load a plot curves (series) from a .IDEFigure files {path1:first file, path2: second file, ...}. The curves are added &quot;saved&quot; into a dictionary. The curves in the dictionary are identified by their label which is consisting of three letters and three number sample (F1P2S2: this signal#2 of plot#2 of file#1). path1, path2 ... are optional.</td>
+</tr>
+<tr>
+<td>{<em>check-point</em>;sig;ss;se;x}</td>
+<td>checks the sig y-value of the point at the x-axis x.</td>
+</tr>
+<tr>
+<td>{<em>check-upper-spec-curve</em>;sig1;sig2;specmin;specmax;xpos}</td>
+<td>checks the sig y-value amplitude of the point at xpos.</td>
+</tr>
+<tr>
+<td>{<em>max</em>;sig;ss;se;rs,re}</td>
+<td>checks if the sig maximum y-value lies in the range [ss - se]. Values in x-axis range [rs - re] are used. rs and re are optional.</td>
+</tr>
+<tr>
+<td>{<em>min</em>;sig;ss;se;rs,re}</td>
+<td>checks if sig minimum y-value lies in the range [ss - se]. Values in x-axis range [rs - re] are used. rs and re are optional.</td>
+</tr>
+<tr>
+<td>{<em>max-pos</em>;sig;ss;se;rs,re}</td>
+<td>checks the x-axis position of the y-maximum value. Values in x-axis range [rs - re] are used. rs and re are optional.</td>
+</tr>
+<tr>
+<td>{<em>ocl-lbw</em>;sig1;sig2;ss;se;rs,re}</td>
+<td>finds the open closed loop active bandwidth lower point. sig1:open loop; sig2: closed loop;  Values in x-axis range [rs - re] are used. rs and re are optional.</td>
+</tr>
+<tr>
+<td>{<em>ocl-hbw</em>;sig1;sig2;ss;se;rs,re}</td>
+<td>checks the open closed loop active bandwidth lower point position lies in [ss - se]. sig1:open loop; sig2: closed loop;  Values in x-axis range [rs - re] are used. rs and re are optional.</td>
+</tr>
+<tr>
+<td>{<em>ocl-damp</em>;sig1;sig2;ss;se;rs,re}</td>
+<td>checks the open closed loop damping value, if it lies in the range [ss - se]. sig1:open loop; sig2: closed loop;  Values in x-axis range [rs - re] are used. rs and re are optional.</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          <div class="contribution-panel mobile-hide">
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

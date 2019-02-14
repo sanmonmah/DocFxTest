@@ -1,0 +1,224 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>GUI DESCRIPTION </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="GUI DESCRIPTION ">
+    <meta name="generator" content="docfx 2.40.10.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="gui-description">GUI DESCRIPTION</h1>
+
+<p>The new SiDiMaT19xA tools basically consists of two main panels “Control panel and Graphs panel”. The control panel contains settings and the graphs panel displays the plots of the measured signal. (See next figure).</p>
+<p><img src="images/guioverview.png" alt=""></p>
+<h2 id="control-panel">Control Panel</h2>
+<p>The control panel contains on the top a control buttons and a few setting tabs “Con-nection, Graphs, Excitation, Trace Setting …etc”.</p>
+<h3 id="control-buttons-bar">Control Buttons Bar</h3>
+<p><img src="images/controlbuttonbar.png" alt=""><br>
+The control buttons bar consists of a few buttons to switch the between time and frequency response plots and to save, cache, open, save and add sidimat19xa measurement.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Control Item</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="images/timeplotbtn.png" alt="timeplotbtn"></td>
+<td>Toggles to the time/spectrum plot view.</td>
+</tr>
+<tr>
+<td><img src="images/specplotbtn.png" alt="btn"></td>
+<td>Toggles to the frequency response plot view.</td>
+</tr>
+<tr>
+<td><img src="images/cachebtn.png" alt="btn"></td>
+<td>Caches the current sidimat19x measurement.</td>
+</tr>
+<tr>
+<td><img src="images/cutbtn.png" alt="btn"></td>
+<td>Deletes the last cached sidimat19x measurement.</td>
+</tr>
+<tr>
+<td><img src="images/addmeasbtn.png" alt="btn"></td>
+<td>Adds a sidimat19x measurement to the current one.</td>
+</tr>
+<tr>
+<td><img src="images/openbtn.png" alt="btn"></td>
+<td>Opens a sidimat19x measurement.</td>
+</tr>
+<tr>
+<td><img src="images/savebtn.png" alt="btn"></td>
+<td>Saves the current sidimat19x measurement.</td>
+</tr>
+<tr>
+<td><img src="images/startambtn.png" alt="btn"></td>
+<td>Opens an auto measurement file and executes it.</td>
+</tr>
+</tbody>
+</table>
+<p><em>Table: Control buttons bar</em></p>
+<h2 id="connection-tab">Connection Tab</h2>
+<p>The “Connection” tab allows you to connect or disconnect to a controller.</p>
+<p><em>Figure 4.1.2: Connection tab.</em></p>
+<ul>
+<li>Use <em>&quot;Connect&quot;</em> button to establish the connection with the controller.</li>
+<li>Use <em>“Disconnect”</em> button to disconnect the communication.</li>
+<li>Use <em>“Terminate Comm Server and Connect”</em> button to close the Comm Server ses-sion, if one is already started and to connect with a new session. This option is rec-ommended after a communication trouble.</li>
+<li>Use <em>“Update Comm Ports list”</em> button to refresh lists of the available com ports.</li>
+</ul>
+<p>Figure 4.1.3: Connect Page after a successful connection with controller.
+4.1.3	Excitation/Diag Tab
+Using the excitation tab the noise injection point, the excitation setting “type and pa-rameters” and the excitation filter settings and usage could be adjusted.</p>
+<p>Figure 4.1.5: Excitation/Diag Tab.</p>
+<p>Control Item	Description</p>
+<p>Click “Accept Change” button to accept the modification of the excitation setting and to send it to the controller.</p>
+<p>Specifies the excitation signal type.</p>
+<p>Toggles the noise filter usage On/Off and specifies the excitation filters.</p>
+<p>Specifies the injection node “signal” of the excitation signal.
+Table 4.1.2: Excitation Tab Control Items.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Excitation Type</strong></th>
+<th><strong>Parameters</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>White Noise</td>
+<td>(1) “Gain [-1,+1]” the gain range [-1,+1] corresponds to [-32000, +32000 digits].</td>
+</tr>
+<tr>
+<td>Sine Wave</td>
+<td>(1) “Gain [-1,+1]” the gain range [-1,+1] corresponds to [-32000, +32000 digits]. (2) Sine wave frequency in Hz.</td>
+</tr>
+<tr>
+<td>Duty Cycle</td>
+<td>(1) “Gain [-1,+1]” the gain range [-1,+1] corresponds to [-32000, +32000 digits]. (2) High Period in millisecond. During this peri-od the signal amplitude equals the adjusted “Gain”. (3) Low Period in millisecond. During this period the signal amplitude is set to zero.</td>
+</tr>
+<tr>
+<td>Chirp Sine “recursive”</td>
+<td>(1) “Gain [-1,+1]” the gain range [-1,+1] corresponds to [-32000, +32000 digits]. (2) Start “lowest” frequency of the chirp sine. (3) End “Highest” frequency of the chirp sine. (4) Time Period of the chirp sine in second.</td>
+</tr>
+</tbody>
+</table>
+<p>Table 4.1.3: Excitation Types and their Parameters.</p>
+<h3 id="trace-setting-tab">Trace Setting Tab</h3>
+<p>The trace setting tab allows to configure all the trace parameter.</p>
+<p><strong>Control Item</strong> | <strong>Description</strong>
+-- | --
+<img src="images/tracech0.png" alt="btn"> | Click “Channel0” button to select the first signal to be traced.
+<img src="images/tracech1.png" alt="btn"> | Click “Channel1” button to select the second signal to be traced.
+<img src="images/tracelen.png" alt="btn"> | Specifies the trace length.
+<img src="images/undersample.png" alt="btn"> | Specifies under sampling rate.
+<img src="images/antialias.png" alt="btn"> | Toggles the usage of the Anti-Aliasing filter On/Off.
+<img src="images/meassett.png" alt="btn"> | Specifies the average number of the meas-urement. Starts/Stops the measurement.
+<img src="images/fastload.png" alt="btn"> | This option appears only for firmware with fast data acquiring support. Enables this op-tion to accelerate the trace data acquiring.
+<em>Table 4.1.4: Trace Setting Tab Control Item.</em></p>
+<p><img src="images/tracesetttab.png" alt="img">
+<em>Figure 4.1.6: Trace Setting Tab.</em></p>
+<p><img src="images/tracesetttab2.png" alt="img">
+<em>Figure 4.1.7: Trace Setting Tab with fast Data Load Support.</em></p>
+<h3 id="opensave-sidimat-parameter-setting-tab">Open/Save Sidimat Parameter Setting Tab</h3>
+<p><strong>Control Item</strong> | <strong>Description</strong>
+-- | --
+<img src="images/openbtn2.png" alt="img"> | Click to load sidimat parameters from a si-dimat configuration file “SiDiMaT19xAConfig”.
+<img src="images/savebtn2.png" alt="img"> | Click to save the actual sidimat parameters to a sidimat configuration file “Si-DiMaT19xAConfig”.
+<em>Table 4.1.6: Save/Load Sidimat Parameter Setting Control Items.</em></p>
+<p><img src="images/saveloadtab.png" alt="img">
+<em>Figure 4.1.9: Save/Load Sidimat Parameter Setting Tab.</em></p>
+</article>
+          </div>
+          <div class="contribution-panel mobile-hide">
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,246 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>The component types </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="The component types ">
+    <meta name="generator" content="docfx 2.40.10.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h2 id="the-component-types">The component types</h2>
+
+<p>All system actions supported in the firmware listed below</p>
+<table>
+<thead>
+<tr>
+<th>Number</th>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>action_none</td>
+<td>do nothing.</td>
+</tr>
+<tr>
+<td>1</td>
+<td>action_overall_active_status</td>
+<td>toggles overall active status on/off.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>action_pneum_status</td>
+<td>toggles pneumatic loop on/off.</td>
+</tr>
+<tr>
+<td>3</td>
+<td>action_pos_status</td>
+<td>toggles position loop on/off.</td>
+</tr>
+<tr>
+<td>4</td>
+<td>action_ff_status</td>
+<td>toggles FF-Subsystem on/off.</td>
+</tr>
+<tr>
+<td>5</td>
+<td>action_ff_adaptive_status</td>
+<td>toggles FF-Subsystem adaptive on/off.</td>
+</tr>
+<tr>
+<td>6</td>
+<td>action_ff_use_raw_status</td>
+<td>toggles FF-Subsystem <em>use raw input</em> option on/off.</td>
+</tr>
+<tr>
+<td>7</td>
+<td>action_pff_status</td>
+<td>toggles FF-Subsystem on/off.</td>
+</tr>
+<tr>
+<td>8</td>
+<td>action_pff_adaptive_status</td>
+<td>toggles FF-Subsystem adaptive on/off.</td>
+</tr>
+<tr>
+<td>9</td>
+<td>action_use_temp_sensor</td>
+<td>toggles the motor protection <em>use temperature sensor</em> option on/off.</td>
+</tr>
+<tr>
+<td>10</td>
+<td>action_noise_filter_status</td>
+<td>toggles using the noise filters on/off.</td>
+</tr>
+<tr>
+<td>11</td>
+<td>use_ethercat_ff_sig</td>
+<td>toggles ethercat ff-signals on/off.</td>
+</tr>
+<tr>
+<td>12</td>
+<td>use_ethercat_output</td>
+<td>toggles ethercat output on/off.</td>
+</tr>
+<tr>
+<td>13</td>
+<td>action_disable_all_motor</td>
+<td>toggles the motor protection <em>disable all motors</em> option on/off.</td>
+</tr>
+<tr>
+<td>14</td>
+<td>action_pneum_move_up</td>
+<td>moves pneumatic system up.</td>
+</tr>
+<tr>
+<td>15</td>
+<td>action_pneum_move_down</td>
+<td>moves pneumatic system down.</td>
+</tr>
+<tr>
+<td>16</td>
+<td>action_pneum_go_to</td>
+<td>move pneumatic system to a specific height.</td>
+</tr>
+<tr>
+<td>17</td>
+<td>action_pneum_setpoint_status</td>
+<td>toggles the pneumatic <em>use setpoint for all axes</em> option on/off.</td>
+</tr>
+<tr>
+<td>18</td>
+<td>action_pneum_move_up_at_startup_status</td>
+<td>toggles the pneumatic <em>move up after startup</em> option on/off.</td>
+</tr>
+<tr>
+<td>19</td>
+<td>action_pneum_dither_comp_status</td>
+<td>toggles the pneumatic <em>dither compensation</em> option on/off.</td>
+</tr>
+<tr>
+<td>20</td>
+<td>action_pneum_accept_valveout_for_up</td>
+<td>updates the pneumatic valve up-offset from the current valve outputs.</td>
+</tr>
+<tr>
+<td>21</td>
+<td>action_pneum_accept_valveout_for_down</td>
+<td>updates the pneumatic valve down-offset from the current valve outputs.</td>
+</tr>
+<tr>
+<td>22</td>
+<td>action_nv_save</td>
+<td>saves actual parameters to NV-RAM &quot;*non-volatile memory&quot;.</td>
+</tr>
+<tr>
+<td>23</td>
+<td>action_nv_restore</td>
+<td>restores parameters from NV-RAM &quot;*non-volatile memory&quot;.</td>
+</tr>
+<tr>
+<td>24</td>
+<td>action_nv_clear</td>
+<td>clears NV-RAM &quot;*non-volatile memory&quot;.</td>
+</tr>
+<tr>
+<td>25</td>
+<td>max_action_type</td>
+<td>n</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          <div class="contribution-panel mobile-hide">
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>
